@@ -18,7 +18,7 @@ Each interface is considered as a standalone project and have dedicated pages wi
 
 ## Interfaces
 
-| [Upload-only](interfaces/upload-only)                                               | [Dashboard](interfaces/dashboard)                                               |
+| [Upload-only](interfaces/upload-only.md)                                               | [Dashboard](interfaces/dashboard.md)                                               |
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | [<img src="assets/upload-only-screenshot.png"/>](assets/upload-only-screenshot.png) | [<img src="assets/dashboard-screenshot.png"/>](assets/dashboard-screenshot.png) |
 
