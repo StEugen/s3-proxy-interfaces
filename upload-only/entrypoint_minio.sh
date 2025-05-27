@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-export MINIO_ROOT_USER=S3RVER
-export MINIO_ROOT_PASSWORD=S3RVER
+export MINIO_ROOT_USER=minioadmin
+export MINIO_ROOT_PASSWORD=minioadmin
 
 minio server /data --address ":4569" &
 MINIO_PID=$!
