@@ -1,0 +1,38 @@
+###############################################################################
+#                                  Builder                                    #
+###############################################################################
+FROM node:20-alpine AS builder
+
+RUN apk add --no-cache bash
+
+WORKDIR /app
+
+COPY . .
+RUN bash build.sh
+
+###############################################################################
+#                                   Runtime                                   #
+###############################################################################
+FROM alpine:3.18
+
+RUN apk add --no-cache \
+    ca-certificates \
+    wget \
+    bash \
+    curl
+
+RUN wget -qO /usr/local/bin/minio https://dl.min.io/server/minio/release/linux-amd64/minio \
+    && chmod +x /usr/local/bin/minio \
+    && wget -qO /usr/local/bin/mc https://dl.min.io/client/mc/release/linux-amd64/mc \
+    && chmod +x /usr/local/bin/mc
+
+WORKDIR /app
+
+COPY --from=builder /app/build /app/build
+
+COPY entrypoint_minio.sh /usr/local/bin/entrypoint_minio.sh
+RUN chmod +x /usr/local/bin/entrypoint_minio.sh
+
+EXPOSE 4569
+
+ENTRYPOINT ["entrypoint_minio.sh"]
