@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-export AWS_ACCESS_KEY_ID=dummy
-export AWS_SECRET_ACCESS_KEY=dummy
+export AWS_ACCESS_KEY_ID=S3RVER
+export AWS_SECRET_ACCESS_KEY=S3RVER
 
 s3rver --port 4569 --address 127.0.0.1 --directory /tmp &
 S3_PID=$!
