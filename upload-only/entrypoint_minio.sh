@@ -15,7 +15,7 @@ done
 mc alias set local http://127.0.0.1:4569 "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD"
 
 mc mb local/frontend || true
-mc cp --recursive /app/build local/frontend
+mc cp --recursive /app/build/* local/frontend
 
 kill $MINIO_PID
 wait $MINIO_PID 2>/dev/null || true
